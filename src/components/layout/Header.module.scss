@@ -1,0 +1,29 @@
+@use "../../assets/scss/breakpoints" as *;
+
+.header {
+  background-color: #fff;
+
+  .innerContainer {
+    padding: 17px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 104px;
+    height: 26px;
+  }
+
+  .headerButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  @include sm {
+    .headerButtons {
+      flex-direction: row;
+    }
+  }
+}
