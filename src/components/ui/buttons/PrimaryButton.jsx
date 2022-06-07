@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "./PrimaryButton.module.scss";
 
-const PrimaryButton = ({ children, onClick, disabled }) => {
+const PrimaryButton = ({ children, onClick, disabled, className }) => {
   return (
     <button
       onClick={onClick}
-      className={`${styles.button} ${disabled ? styles.disabled : ""}`}
+      className={`${styles.button} ${className || ""} ${
+        disabled ? styles.disabled : ""
+      }`}
     >
       {children}
     </button>
