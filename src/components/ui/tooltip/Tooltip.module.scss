@@ -1,0 +1,19 @@
+.tooltipContainer {
+  position: relative;
+  cursor: pointer;
+
+  &:hover::after {
+    width: max-content;
+    content: attr(data-label);
+    padding: 3px 16px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, calc(100% + 10px));
+    border-radius: 4px;
+    background-color: #000;
+    font-weight: 400;
+    color: #fff;
+    z-index: 1;
+  }
+}

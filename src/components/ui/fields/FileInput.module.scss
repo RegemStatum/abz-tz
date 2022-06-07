@@ -1,0 +1,67 @@
+@use "../../../assets/scss/colors.scss" as *;
+
+.container {
+  $border-radius: 4px;
+
+  // hide the default input
+  .input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  // styled input
+  .label {
+    display: block;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .uploadButton {
+    padding: 14px 15px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .labelText {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d0cfcf;
+    border-left: none;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    color: #7e7e7e;
+  }
+
+  // image has been uploaded
+  &.notEmpty {
+    .labelText {
+      color: black;
+    }
+  }
+
+  // on error
+  &.error {
+    .uploadButton,
+    .labelText {
+      border-width: 2px;
+      border-color: $error-color;
+    }
+  }
+
+  .errorText {
+    margin-top: 4px;
+    margin-left: 16px;
+    font-size: 12px;
+    line-height: 14px;
+    color: $error-color;
+  }
+}

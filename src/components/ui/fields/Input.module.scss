@@ -1,0 +1,73 @@
+@use "../../../assets/scss/colors" as *;
+
+.container {
+  // input
+  .inputContainer {
+    position: relative;
+  }
+
+  .input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d0cfcf;
+    border-radius: 4px;
+    background-color: transparent;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    outline: none;
+  }
+
+  // label
+  .label,
+  .helperText {
+    color: #7e7e7e;
+  }
+
+  .label {
+    position: absolute;
+    left: 16px;
+    text-transform: capitalize;
+  }
+
+  // label initial state
+  .input:not(:focus):placeholder-shown + .label {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // label on input focus or input contains the value
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label {
+    padding: 0 4px;
+    top: -6px;
+    border-radius: 1px;
+    background-color: $background-color;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+
+  // helper text
+  .helperText {
+    margin-top: 4px;
+    margin-left: 16px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  // on error
+  &.error {
+    color: $error-color;
+
+    .input {
+      border-color: $error-color;
+      border-width: 2px;
+    }
+
+    .label,
+    .helperText {
+      color: $error-color;
+    }
+  }
+}

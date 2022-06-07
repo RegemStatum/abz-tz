@@ -1,6 +1,7 @@
 @use "./colors" as *;
 @use "./fonts" as *;
 @use "./typography" as *;
+@use "./breakpoints" as *;
 
 *,
 *::after,
@@ -11,6 +12,11 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: $background-color;
+}
+
+button {
+  font-family: inherit;
 }
 
 h1,
@@ -20,4 +26,8 @@ h4,
 h5,
 p {
   margin: 0;
+}
+
+img {
+  display: block;
 }
