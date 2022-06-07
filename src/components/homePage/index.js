@@ -1,3 +1,4 @@
 import Hero from "./Hero";
+import GetRequestSection from "./GetRequestSection";
 
-export { Hero };
+export { Hero, GetRequestSection };

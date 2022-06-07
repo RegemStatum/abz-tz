@@ -1,12 +1,15 @@
 import React from "react";
 import Header from "../components/layout/Header";
-import { Hero } from "../components/homePage";
+import { GetRequestSection, Hero } from "../components/homePage";
 
 const HomePage = () => {
   return (
     <>
       <Header />
-      <Hero />
+      <main>
+        <Hero />
+        <GetRequestSection />
+      </main>
     </>
   );
 };
