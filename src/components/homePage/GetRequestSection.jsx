@@ -4,30 +4,31 @@ import Title from "../ui/title/Title";
 import UsersGrid from "../users/UsersGrid";
 import Preloader from "../ui/loaders/Preloader";
 import PrimaryButton from "../ui/buttons/PrimaryButton";
+import { USERS_COUNT } from "../../constants";
 
-const GetRequestSection = () => {
+const GetRequestSection = ({ isUserRegistrationSuccess }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [isShowMoreButtonVisible, setIsShowMoreButtonVisible] = useState(true);
   const [page, setPage] = useState(1);
   const [users, setUsers] = useState([]);
-  const USERS_COUNT = 6;
 
+  // fetch new users on page change
   useEffect(() => {
-    async function fetchUsers() {
+    const fetchUsers = async () => {
       try {
         setIsLoading(true);
+
         const response = await fetch(
           `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=${USERS_COUNT}`
         );
         const data = await response.json();
 
-        console.log(data);
-
         if (!data.success) {
           throw new Error(data.message);
         }
 
+        // hide show more button on last page
         if (data.total_pages === page) {
           setIsShowMoreButtonVisible(false);
         } else {
@@ -38,11 +39,19 @@ const GetRequestSection = () => {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
     fetchUsers();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
+
+  // rerender users after registration
+  useEffect(() => {
+    if (isUserRegistrationSuccess) {
+      setUsers([]);
+      setPage(2);
+      setPage(1);
+    }
+  }, [isUserRegistrationSuccess]);
 
   const handleShowMoreButtonClick = () => {
     setPage(page + 1);

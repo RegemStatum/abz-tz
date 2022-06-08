@@ -2,11 +2,24 @@ import React from "react";
 import styles from "./Input.module.scss";
 
 const Input = React.forwardRef((props, ref) => {
-  const { type, label, helperText, required, errorMsg, name = "" } = props;
+  const {
+    type,
+    label,
+    helperText,
+    required,
+    errorMsg,
+    name = "",
+    pattern,
+    className = "",
+  } = props;
   const isHelperTextShown = helperText || errorMsg;
 
   return (
-    <div className={`${styles.container} ${errorMsg ? styles.error : ""}`}>
+    <div
+      className={`${styles.container} ${
+        errorMsg ? styles.error : ""
+      } ${className} `}
+    >
       <div className={styles.inputContainer}>
         <input
           ref={ref}
@@ -15,6 +28,7 @@ const Input = React.forwardRef((props, ref) => {
           className={styles.input}
           id={name}
           name={name}
+          pattern={pattern}
           placeholder=" "
         />
         <label htmlFor={name} className={styles.label}>

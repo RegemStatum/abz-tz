@@ -1,0 +1,63 @@
+@use "../../../assets/scss/colors.scss" as *;
+
+.container {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+// hide the default input
+.input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+// custom input
+.label::after,
+.label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.label::after {
+  width: 20px;
+  height: 20px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #d0cfcf;
+}
+
+.label::before {
+  width: 10px;
+  height: 10px;
+  left: 5px;
+  background-color: $secondary-color;
+  z-index: 1;
+  display: none;
+}
+
+.label {
+  padding-left: 32px;
+  cursor: pointer;
+}
+
+// change styles on check
+.input:checked + .label::before {
+  display: block;
+}
+
+.input:checked + .label::after {
+  border-color: $secondary-color;
+}

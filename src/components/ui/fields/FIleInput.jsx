@@ -1,8 +1,15 @@
 import React from "react";
 import styles from "./FileInput.module.scss";
 
-const FileInput = React.forwardRef((props, ref) => {
-  const { required, errorMsg, name, fileName } = props;
+const FileInput = (props) => {
+  const {
+    required,
+    errorMsg,
+    name,
+    fileName,
+    handleFileUpload,
+    accept = "/*/",
+  } = props;
   let labelText = "Upload your photo";
 
   return (
@@ -13,11 +20,11 @@ const FileInput = React.forwardRef((props, ref) => {
     >
       <input
         type="file"
+        onChange={handleFileUpload}
         id={name}
         name={name}
-        ref={ref}
         required={required}
-        accept="image/*"
+        accept={accept}
         className={styles.input}
       />
       <label htmlFor={name} className={styles.label}>
@@ -29,6 +36,6 @@ const FileInput = React.forwardRef((props, ref) => {
       {errorMsg && <p className={styles.errorText}>{errorMsg}</p>}
     </div>
   );
-});
+};
 
 export default FileInput;

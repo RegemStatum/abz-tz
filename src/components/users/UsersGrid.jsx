@@ -3,8 +3,6 @@ import styles from "./UsersGrid.module.scss";
 import UserCard from "./UserCard";
 
 const UsersGrid = ({ users }) => {
-  console.log("users", users);
-
   return (
     <div className={styles.gridContainer}>
       {users.map((user, index) => {
