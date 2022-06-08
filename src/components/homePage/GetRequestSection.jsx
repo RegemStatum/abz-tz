@@ -47,8 +47,8 @@ const GetRequestSection = ({ isUserRegistrationSuccess }) => {
   // rerender users after registration
   useEffect(() => {
     if (isUserRegistrationSuccess) {
-      setUsers([]);
       setPage(2);
+      setUsers([]);
       setPage(1);
     }
   }, [isUserRegistrationSuccess]);
