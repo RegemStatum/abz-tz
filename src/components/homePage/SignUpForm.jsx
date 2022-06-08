@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Input from "../ui/fields/Input";
-import FileInput from "../ui/fields/FileInput";
+import FileInput from "../ui/fields/FileInput.jsx";
 import styles from "./SignUpForm.module.scss";
 import SignUpPositions from "./SignUpPositions";
 import PrimaryButton from "../ui/buttons/PrimaryButton";
